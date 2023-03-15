@@ -6,7 +6,7 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:11:38 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/13 12:22:30 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/15 12:40:42 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_itoa(int n);
 
 #endif
