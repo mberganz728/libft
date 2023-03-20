@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:43:42 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/20 13:58:50 by mberganz         ###   ########.fr       */
+/*   Created: 2023/03/16 13:17:49 by mberganz          #+#    #+#             */
+/*   Updated: 2023/03/16 14:06:27 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = ft_strlen(src);
-	if (size != 0)
-	{
-		while (src[i] != 0 && (i < size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
-	}
-	return (j);
+	write(fd, &c, 1);
 }
 /*
-#include <stdio.h>
-int	main(void)
+int	main()
 {
-	char	a[] = "tortillaca";
-	char	b[] = "patata";
-	unsigned int c = 9;
-	printf("Chars copiados: %d\n", ft_strlcpy(a, b, c));
-	printf("Cadena: %s\n", a);
+	char	a = 'p';
+	int		n = 1;
+	ft_putchar_fd(a, n);
 	return (0);
 }*/

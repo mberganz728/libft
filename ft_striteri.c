@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:43:42 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/20 13:58:50 by mberganz         ###   ########.fr       */
+/*   Created: 2023/03/16 11:22:19 by mberganz          #+#    #+#             */
+/*   Updated: 2023/03/16 13:17:27 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
-	size_t	j;
+	int		i;
 
 	i = 0;
-	j = ft_strlen(src);
-	if (size != 0)
+	while (s[i])
 	{
-		while (src[i] != 0 && (i < size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		f(i, &s[i]);
+		i++;
 	}
-	return (j);
 }
-/*
-#include <stdio.h>
-int	main(void)
+
+/*void	*fvoid(unsigned int i, char *s)
 {
-	char	a[] = "tortillaca";
-	char	b[] = "patata";
-	unsigned int c = 9;
-	printf("Chars copiados: %d\n", ft_strlcpy(a, b, c));
-	printf("Cadena: %s\n", a);
+	char	*str;
+	
+	i = 0;
+	s = "patata";
+	
+}
+
+#include <stdio.h>
+int	main()
+{
+	char	a[] = "patata";
+	printf("%s", ft_striteri(a, fvoid));
 	return (0);
 }*/

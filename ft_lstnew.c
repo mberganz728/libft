@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 10:49:00 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/20 12:37:39 by mberganz         ###   ########.fr       */
+/*   Created: 2023/03/20 13:22:57 by mberganz          #+#    #+#             */
+/*   Updated: 2023/03/20 18:21:01 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *sorc, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	char			*dst;
-	char			*src;
-	unsigned int	i;
+	t_list	*nodo;
 
-	dst = (char *) dest;
-	src = (char *) sorc;
-	i = 0;
-	if (dst == 0 && src == 0)
-		return (0);
-	while (i < n)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	return (dst);
+	nodo = (t_list *)malloc(sizeof(t_list));
+	if (!nodo)
+		return (NULL);
+	nodo->content = content;
+	nodo->next = NULL;
+	return (nodo);
 }
-/*#include <stdio.h>
-int	main(void)
-{
-	char dst [] = "tortilla";
-	char src [] = "patata";
-	size_t n = 3;
-	printf("%s", ft_memcpy(dst, src, n));
-	return (0);
-}*/

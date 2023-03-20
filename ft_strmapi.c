@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:43:42 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/20 13:58:50 by mberganz         ###   ########.fr       */
+/*   Created: 2023/03/16 10:43:07 by mberganz          #+#    #+#             */
+/*   Updated: 2023/03/16 14:32:30 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	j;
+	char	*str;
+	int		i;
 
 	i = 0;
-	j = ft_strlen(src);
-	if (size != 0)
+	str = (char *)malloc((ft_strlen(s) + 1) * (sizeof(char)));
+	if (!str)
+		return (0);
+	while (s[i])
 	{
-		while (src[i] != 0 && (i < size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	return (j);
+	str[i] = '\0';
+	return (str);
 }
-/*
-#include <stdio.h>
-int	main(void)
+
+/*#include <stdio.h>
+int	main()
 {
-	char	a[] = "tortillaca";
-	char	b[] = "patata";
-	unsigned int c = 9;
-	printf("Chars copiados: %d\n", ft_strlcpy(a, b, c));
-	printf("Cadena: %s\n", a);
+	char	a[] = "tortilla";
+	printf("%s", ft_strmapi(a, ));
 	return (0);
 }*/

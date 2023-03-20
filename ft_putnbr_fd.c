@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:43:42 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/20 13:58:50 by mberganz         ###   ########.fr       */
+/*   Created: 2023/03/16 16:15:57 by mberganz          #+#    #+#             */
+/*   Updated: 2023/03/17 11:17:24 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	size_t	j;
+	int	mod;
 
-	i = 0;
-	j = ft_strlen(src);
-	if (size != 0)
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		while (src[i] != 0 && (i < size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		write(fd, "-", 1);
+		ft_putnbr_fd(-n, fd);
 	}
-	return (j);
+	else
+	{
+		if (n > 9)
+			ft_putnbr_fd(n / 10, fd);
+		mod = n % 10 + 48;
+		write(fd, &mod, 1);
+	}
 }
-/*
-#include <stdio.h>
-int	main(void)
+/*int	main()
 {
-	char	a[] = "tortillaca";
-	char	b[] = "patata";
-	unsigned int c = 9;
-	printf("Chars copiados: %d\n", ft_strlcpy(a, b, c));
-	printf("Cadena: %s\n", a);
+	ft_putnbr_fd(24556, '1');
 	return (0);
 }*/
