@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 18:21:46 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/22 13:00:37 by mberganz         ###   ########.fr       */
+/*   Created: 2023/03/22 11:47:43 by mberganz          #+#    #+#             */
+/*   Updated: 2023/03/22 16:27:54 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next != NULL)
+	t_list	*newlist;
+
+	while (lst != NULL)
+	{
+		newlist = ft_lstnew(f(lst->content));
+		if (!newlist)
+		{
+			ft_lstclear(&newlist, del);
+			return (NULL);
+		}
+		newlist = newlist->next;
 		lst = lst->next;
-	return (lst);
+	}
+	return (newlist);
 }

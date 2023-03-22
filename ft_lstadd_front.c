@@ -6,11 +6,13 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:09:18 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/20 16:46:56 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:03:20 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	
+	new->next = *lst;
+	*lst = new;
+}	
