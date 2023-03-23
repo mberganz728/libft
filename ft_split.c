@@ -6,7 +6,7 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:56:28 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/20 13:00:34 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:56:10 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -43,7 +43,7 @@ char	**eachmstr(char *s, char c, char **strs)
 	while (s[i])
 	{
 		j = 0;
-		if (s[i] != c && s[i])
+		if (s[i] != c)
 		{
 			while (s[i] != c && s[i])
 			{
@@ -72,7 +72,7 @@ char	**cpystrs(char *s, char c, char **strs)
 	while (s[i])
 	{
 		j = 0;
-		if (s[i] != c && s[i])
+		if (s[i] != c)
 		{
 			while (s[i] != c && s[i])
 			{
