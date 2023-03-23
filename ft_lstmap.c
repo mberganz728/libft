@@ -34,17 +34,18 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (newlist);
 }
-/*#include <stdio.h>
-char	*f(void *ptr)
+/*
+#include <stdio.h>
+#include <stdlib.h>
+void	*f(void *ptr)
 {
-	(char *)ptr = printf("%s", ptr);
+	ptr = (char *)ptr;
+	printf("%s", (char *)ptr);
 	return (ptr);
 }
-
-char	*del(void *ptr)
+void	del(void *ptr)
 {
 	free(ptr);
-	return (ptr);
 }
 
 int	main()
@@ -56,7 +57,6 @@ int	main()
 	ft_lstadd_back(&list, ft_lstnew("tortilla"));
 	ft_lstadd_back(&list, ft_lstnew("de"));
 	ft_lstadd_back(&list, ft_lstnew("patata"));
-
 	new_list = ft_lstmap(list, f, del);
 	if (!new_list)
 	{
@@ -66,5 +66,5 @@ int	main()
 	printf("New list:\n");
 	ft_lstclear(&list, del);
 	ft_lstclear(&new_list, del);
-	return (0);	
+	return (0);
 }*/
