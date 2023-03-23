@@ -6,12 +6,12 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:59:43 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/22 17:22:30 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:29:46 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
 

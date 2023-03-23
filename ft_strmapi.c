@@ -6,7 +6,7 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:43:07 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/16 14:32:30 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/23 15:42:19 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,11 +28,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-
-/*#include <stdio.h>
-int	main()
-{
-	char	a[] = "tortilla";
-	printf("%s", ft_strmapi(a, ));
-	return (0);
-}*/

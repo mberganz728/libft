@@ -6,7 +6,7 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:11:38 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/22 12:14:38 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/22 19:01:32 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	ft_putnbr_fd(int n, int fd);
 
 typedef struct s_list
 {
-	void	*content;
-	struct	s_list *next;
+	void			*content;
+	struct s_list	*next;
 }	t_list;
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);

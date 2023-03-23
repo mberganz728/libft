@@ -6,12 +6,12 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:56:28 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/23 13:56:10 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/23 15:35:02 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	strsnum(char const *s, char c)
+static int	strsnum(char const *s, char c)
 {
 	int	strs;
 	int	i;
