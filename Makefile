@@ -6,7 +6,7 @@
 #    By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 12:47:29 by mberganz          #+#    #+#              #
-#    Updated: 2023/03/24 10:19:43 by mberganz         ###   ########.fr        #
+#    Updated: 2023/03/28 10:38:16 by mberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,6 @@ all:  $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS) $(OBJS_B)

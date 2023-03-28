@@ -6,7 +6,7 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:56:28 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/23 15:35:02 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:01:15 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -32,7 +32,7 @@ static int	strsnum(char const *s, char c)
 	return (strs);
 }
 
-char	**eachmstr(char *s, char c, char **strs)
+static char	**eachmstr(char *s, char c, char **strs)
 {
 	int	i;
 	int	j;
@@ -50,7 +50,7 @@ char	**eachmstr(char *s, char c, char **strs)
 				i++;
 				j++;
 			}
-			strs[k] = (char *)malloc((j + 1) * (sizeof(char)));
+			strs[k] = (char *)ft_calloc((j + 1), (sizeof(char)));
 			if (!strs[k])
 				return (0);
 			k++;
@@ -61,7 +61,7 @@ char	**eachmstr(char *s, char c, char **strs)
 	return (strs);
 }
 
-char	**cpystrs(char *s, char c, char **strs)
+static char	**cpystrs(char *s, char c, char **strs)
 {
 	int	i;
 	int	j;

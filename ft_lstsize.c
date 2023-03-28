@@ -6,7 +6,7 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:59:43 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/22 18:29:46 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:00:18 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,7 +16,7 @@ int	ft_lstsize(t_list *lst)
 	int	i;
 
 	i = 0;
-	while (lst != 0)
+	while (lst != NULL)
 	{
 		i++;
 		lst = lst->next;

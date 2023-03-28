@@ -6,27 +6,18 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:33:53 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/20 17:39:16 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/27 17:51:04 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-#include <stdio.h>
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*mysf(char const *s, char *sub, unsigned int start, size_t len)
 {
-	char	*sub;
-	size_t	i;
-	size_t	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
 	j = 0;
-	if ((int)len < 0 || (int)len > (int)ft_strlen(s) + (int)start)
-		sub = (char *)malloc(ft_strlen(s) + 1 * (sizeof(char)));
-	else
-		sub = (char *)malloc((len + 1) * (sizeof(char)));
-	if (!sub)
-		return (0);
 	while (s[i])
 	{
 		if (j < len && i >= start)
@@ -39,12 +30,33 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[j] = '\0';
 	return (sub);
 }
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char			*sub;
+	unsigned int	i;
+	unsigned int	j;
+
+	i = 0;
+	j = 0;
+	if (((unsigned int)ft_strlen(s) + start) < (unsigned int)len)
+		len = ft_strlen(s) + start;
+	if (start >= (unsigned int)ft_strlen(s))
+		sub = (char *)malloc(sizeof(char));
+	else if ((unsigned int)ft_strlen(s) > start + (unsigned int)len)
+		sub = (char *)malloc((len + 1) * (sizeof(char)));
+	else
+		sub = (char *)malloc((ft_strlen(s) - start + 1) * (sizeof(char)));
+	if (!sub)
+		return (0);
+	return (mysf(s, sub, start, len));
+}
 /*#include <stdio.h>
 int	main()
 {
-	char a[] = "tripouille";
-	unsigned int start = 0;
-	size_t len = 42000;
+	char a[] = "hola";
+	unsigned int start = 4;
+	size_t len = 1;
  	char *str = ft_substr(a, start, len);
 	printf("%s\n", str);
 	free(str);

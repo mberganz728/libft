@@ -6,12 +6,12 @@
 /*   By: mberganz <mberganz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:56:24 by mberganz          #+#    #+#             */
-/*   Updated: 2023/03/16 13:51:41 by mberganz         ###   ########.fr       */
+/*   Updated: 2023/03/27 13:42:02 by mberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-unsigned int	ft_intlen(int n)
+static int	ft_intlen(int n)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ unsigned int	ft_intlen(int n)
 	return (i);
 }
 
-char	*cut_itoa(int n, unsigned int nlen, char *mit)
+static char	*cut_itoa(int n, unsigned int nlen, char *mit)
 {
 	if (n < 0)
 	{
